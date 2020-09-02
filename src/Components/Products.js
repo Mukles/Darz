@@ -24,7 +24,6 @@ const Products = () => {
                   </div>
                 ))
               }
-              <h1>Mukles</h1>
             </div>
           }
           </div>

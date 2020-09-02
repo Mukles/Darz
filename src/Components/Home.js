@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Navbar from './Navbar';
 import Filter from './Filter';
 import Title from './Title';
@@ -11,14 +11,13 @@ import { useSelector } from 'react-redux';
 
 const Home = () =>{
   const data = useSelector(state =>({ Products: state.Product}));
-  const { value } = data.Products;
-  const [isOpenSearchValue, setIsopenSearchValue] = useState(false);
+  const { value, isSuggationOpen } = data.Products;
   return(
     <>
       <Title />
       <LinkBar />
       <Navbar />
-      {value? <Suggation />: <SearchValue />}
+      {value && isSuggationOpen ? <Suggation /> : (isSuggationOpen && value) || (isSuggationOpen)? <SearchValue />: null}
       <ProductSlider />
       <Products />
     </>

@@ -4,8 +4,13 @@ import { createClient } from 'contentful';
  const LOADING = data => ({ type: types.PRODUCT_LOADING, payload: data });
  const SUCCESSS = data => ({ type: types.PRODUCT_LOAD_SUCCESS, payload: data});
  const ERROR = error => ({type: types.PRODUCT_LOAD_ERROR, payload: error});
- export const setSearchValue = event =>({ type: types.SEARCH_VALUE, value: event.target.value});
+ export const setSearchValue = data =>({ type: types.SEARCH_VALUE, value: data});
  export const saveSearch = saveValue =>({ type: types.SAVE_SEARCH, searchValue: saveValue })
+ export const saveSuggation = () => ({type: types.SAVE_SUGGATION})
+ export const closeSuggation = () => ({type: types.CLOSE_SAVE_SUGGATION})
+ export const deleteSuggation = (data) => ({type: types.DELETE_ITEM, payload: data});
+ export const isonClickCliked = () => ({type: types.IS_ONCLICK_CLICKED});
+ export const getElement = () => ({type: types.GET_ELEMENT});
 
 const client = createClient({
   space: "kwv7uhkbidp3",
